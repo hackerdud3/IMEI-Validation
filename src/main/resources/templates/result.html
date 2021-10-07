@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>IMEI Validation</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="navbar:: navbar"></div>
+<div class="container">
+    <div class="active-cyan-3 active-cyan-4">
+        <label for="digitSequence">Provided IMEI Number:</label>
+        <input type="text" class="form-control" id="digitSequence" th:value="${digitSequence}" disabled>
+    </div>
+      <div class="active-cyan-3 active-cyan-4">
+        <label for="isValid">
+            Given IMEI Number is</label>
+        <input type="text" class="form-control" id="isValid"
+               th:value="${isValid} ? 'Valid' : 'Invalid, please replace the last digit with provided digit'"
+               aria-describedby="isValidHelp"
+               disabled>
+       
+    </div>
+    <div class="active-cyan-3 active-cyan-4">
+        <label for="checkDigit">last digit to make valid IMEI, if IMEI Number is Not Valid:</label>
+        <input type="text" class="form-control" id="checkDigit" th:value="${checkDigit}"
+               aria-describedby="checkDigitHelp" disabled>
+        
+    </div>
+  
+    <div class="submitButton">
+        <a th:href="@{/}">
+            <button class="btn btn-info">Return to home page</button>
+        </a>
+    </div>
+</div>
+</body>
+</html>

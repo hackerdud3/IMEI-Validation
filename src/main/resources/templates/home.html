@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>IMEI Valaidation</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="navbar:: navbar"></div>
+<div class="container">
+    
+    <form th:method="POST" th:action="@{/result}">
+        <div class="active-cyan-3 active-cyan-4">
+            <label for="digitSequence">Enter IMEI Number:(only 15 digits will work)</label>
+            <input type="number" min="15" class="form-control" id="digitSequence" th:value="${digitSequence}"
+                   name="digitSequence" placeholder="IMEI Number" required>
+        </div>
+        <div class="submitButton">
+            <button type="submit" class="btn btn-info">Submit</button>
+        </div>
+    </form>
+ 
+</div>
+</body>
+</html>
+
+
